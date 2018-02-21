@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Introduction to D3</title>
+</head>
+
+<body>
+    
+<!--The first thing to do is to load in the d3 library-->        
+<script src="https://d3js.org/d3.v4.min.js"></script> 
+
+<!--Okay, first we're going to set the width and height of the svg element--> 
+<svg width="720" height="120">
+    
+<!--Next, we're going to draw three cirlces. 
+We'll set the x and y coordinates, as well as the radius--> 
+  <circle cx="40" cy="60" r="10"></circle>
+  <circle cx="80" cy="60" r="10"></circle>
+  <circle cx="120" cy="60" r="10"></circle>
+</svg>    
+    
+<script>
+
+//Now we're in the 'script' element, we use "//" to comment for single line comments
+
+/*
+For multi-line comments,
+use "/*" and 
+*/
+
+    
+/*We've created circles in the svg element. 
+So, let's use the d3 selectAll command to select the circles
+And then let's change their colours to 'steelblue'*/
+    
+var circle = d3.selectAll("circle")
+        .attr("fill","steelblue")
+        .attr("r",21);
+  
+/* Okay, now some rectanges.
+Note that we are appending the svg element, not the body.
+This is because 'rect' is an svg element, NOT a html element.
+For a rectange, you want to look at */
+
+var rect = d3.select("svg").append("rect")
+                    .attr("x", 10)
+                    .attr("y", 10)
+                    .attr("width", 10)
+                    .attr("height", 10);
+    
+/*Now to draw a line. 
+Note that to draw a line, you need to specify: 
+start(x,y), end (x,y), as well as both stroke width and stroke color */
+    
+var line = d3.select("svg").append("line")
+                        .attr("x1", 5)
+                        .attr("y1", 5)
+                        .attr("x2", 50)
+                        .attr("y2", 50)
+                        .attr("stroke-width",2)
+                        .attr("stroke","black");    
+    
+
+    
+//Now, let's append the body and add some text.
+d3.select("body").append("h1").html("Some random text")
+        .style("color","red");
+
+
+//Let's add a paragraph, and give it the class paragraph2  
+d3.select("body").append("p").html("Second paragraph").attr("class","p2");
+    
+//Let's add a paragraph, and give it the id "p3"    
+d3.select("body").append("p").html("Third paragraph").attr("id","p3");
+    
+   
+//You can select paragraphs with ids by using "#"
+//For Classes, meanwhile, you have to use "."    
+d3.select("#p3").style("color","steelblue");
+d3.select(".p2").style("color","orange"); 
+     
+    
+</script>
+
+</body>
