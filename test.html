@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Transitions with D3</title>
+</head>
+
+<body>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<!--We begin by drawing a circle in the svg-->
+    
+<svg width = "1000", height = "1000">
+    <circle cx = "100", cy = "100", r = "10"></circle>    
+</svg>    
+    
+<script>
+
+/*Here, we'll set the colour as green to begin with, and then transition it to red.
+Using the 'delay' function, we can delay the start of the transition 
+We'll also be 'chaining' the transitions. So, the transitions are gone down in order
+We go from creating a green circle, send it to the otherside of the page,
+make it blue, and then resize it
+*/
+
+  d3.selectAll("circle")
+    .attr("fill","#99CC00")
+    .transition()
+    .delay(750)
+    .duration(1000)
+    .attr("cx", 700)
+    .transition()
+    .duration(4000)
+    .attr("fill","steelblue")
+    .transition()
+    .duration(1000)
+    .attr("r", 50)
+
+    
+</script>
+</body>
