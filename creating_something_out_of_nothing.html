@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Creating something out of nothing</title>
+</head>
+
+<body>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+ 
+<script>
+
+/* One of the coolest things about D3 is the fact that you can essentially
+'create' something out of nothing 
+To show this, let's draw a simple circle..But we won't use svg in the html to do this... */
+    
+//Note that you have to create svg as a variable. Otherwise it won't save properly    
+var svg = d3.select("body").append("svg")
+    .attr("width", 700)
+    .attr("height", 700);
+    
+//Now create the circle, by appending to the svg    
+var circle = svg.append("circle")
+    .attr("cx", 40)
+    .attr("cy", 100)
+    .attr("r", 10)
+    .attr("fill","#99CC00");
+
+    
+</script>
+</body>
